@@ -1,0 +1,29 @@
+# General dependencies
+requests
+geocoder
+gtts
+pandas
+numpy
+python-dotenv
+
+# Speech and Text Processing
+SpeechRecognition
+pyttsx3
+googletrans==4.0.0-rc1
+google-generativeai
+
+# Image Processing
+pytesseract
+Pillow
+opencv-python
+google-cloud-vision
+google-auth
+
+# Machine Learning & Deep Learning
+torch
+torchvision
+torchaudio --index-url https://download.pytorch.org/whl/cu118
+ultralytics
+
+
+# Byteio
