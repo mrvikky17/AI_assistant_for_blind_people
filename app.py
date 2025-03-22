@@ -86,6 +86,8 @@ def submit():
         # 'body' : "msg_body",
         # }
 
+        # sample text
+
         try:
             mail.send(msg)
             return render_template('otp.html')
