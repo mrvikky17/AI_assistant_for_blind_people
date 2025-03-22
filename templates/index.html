@@ -2,38 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Voice Chat</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Voice Assistant for Blind</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-gradient-to-b from-[#0f0f23] to-black text-white font-sans">
+<body>
+  <div class="container">
+    <nav>
+      <h1 class="logo">EchoAid</h1>
+      <div class="nav-buttons">
+        <a href="/login" class="btn">Login</a>
+        <a href="/signup" class="btn btn-outline">Sign Up</a>
+      </div>
+    </nav>
 
-  <!-- Navbar -->
-  <nav class="flex items-center justify-between px-6 py-4">
-    <div class="text-2xl font-bold flex items-center gap-2">
-      <img src="logo.png" alt="logo" class="w-6 h-6" />
-      DeepAI
-    </div>
-    <div class="space-x-6 text-sm">
-      <a href="#" class="hover:text-purple-400">AI Chat</a>
-      <a href="#" class="hover:text-purple-400">AI Image Generator</a>
-      <a href="#" class="hover:text-purple-400">AI Video</a>
-      <a href="#" class="hover:text-purple-400">AI Music</a>
-      <a href="#" class="hover:text-purple-400">AI Voice Chat</a>
-      <a href="#" class="hover:text-purple-400">Login</a>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <div class="flex flex-col items-center justify-center h-[80vh] text-center px-4">
-    <h1 class="text-3xl md:text-5xl font-bold mb-4">AI Voice Chat</h1>
-    <p class="text-lg md:text-xl mb-8 max-w-xl">
-      AI Voice Chat by Deep AI. Chat with AI using your voice. The most advanced AI voice chat mode.
-    </p>
-    <button class="bg-purple-600 hover:bg-purple-700 text-white font-medium px-10 py-3 rounded-full text-lg shadow-lg transition">
-      Call
-    </button>
+    <section class="hero">
+      <div class="content">
+        <h2 class="animated-text">Empowering the Blind with Intelligent Voice Assistance</h2>
+        <p class="description">
+          EchoAid is your smart, friendly companion. From reading texts aloud to identifying surroundings and guiding navigation, we redefine independence.
+        </p>
+        <a href="/signup" class="btn big-btn">Get Started</a>
+      </div>
+      <div class="animation-wrapper" aria-hidden="true">
+        <div class="circle pulse"></div>
+        <div class="circle delay1"></div>
+        <div class="circle delay2"></div>
+      </div>
+    </section>
   </div>
 
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
