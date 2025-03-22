@@ -27,7 +27,5 @@ ultralytics
 
 
 # Byteio
-flask_mail
-
-flask_sqlalchemy
-flask_migrate
+sqlite3
+bcrypt
