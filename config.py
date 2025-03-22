@@ -1,0 +1,9 @@
+import os
+
+class Config:
+    SECRET_KEY = '2eb558d782c9948ff017c8ac6eb90c96effec80bc23ee54fc60b1bd1dc5aca87'
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///users.db'
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SESSION_TYPE = 'filesystem'
+    RECAPTCHA_SITE_KEY = '6Lde-PwqAAAAAP83PQWHlBhgLFmxDLVcqlvPFYdC'
+    RECAPTCHA_SECRET_KEY = '6Lde-PwqAAAAAIWPseKJD9ehduontWB8ZEC3JB7U'

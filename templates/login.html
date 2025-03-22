@@ -1,72 +1,87 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="../static/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <script src="../static/script.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <!-- <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script> -->
+  <meta charset="UTF-8">
+  <title>Login | EchoAid</title>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .form-container {
+      background: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .form-container h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .form-container input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .form-container button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      background-color: #667eea;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-container button:hover {
+      background-color: #5a67d8;
+    }
+
+    .g-recaptcha {
+      margin: 20px 0;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <div class="container">
-        <div class="cover">
-            <div class="front">
-                <img src="../static/assests/frontend.jpg" alt="">
-                <div class="text">
-                    <span class="text-1">Enhance workplace <br> communication <br> with AI Companion</span>
-                    <span class="text-2">Let's get connected</span>
-                </div>
-            </div>
-        </div>
-        <div class="forms">
-            <div class="form-content">
-                <div class="login-form">
-                    <div class="title">Login</div>
-                    <form action="{{ url_for('submit') }}" id="loginForm" onsubmit="validateForm(event)" method="post">
-                        <div class="input-boxes">
-                            <div class="input-box">
-                                <i class="fas fa-user"></i>
-                                <input type="text" placeholder="Enter your name" name="name" required>
-                            </div>
-                            <div class="input-box">
-                                <i class="fas fa-envelope"></i>
-                                <input type="text" placeholder="Enter your email" name="email" required>
-                            </div>
-                            <div class="input-box">
-                                <i class="fas fa-lock"></i>
-                                <input type="password" placeholder="Enter your password" name="password" required>
-                            </div>
-                            <div class="text"><a href="#">Forgot password?</a></div>
-                            <!-- <div class="g-recaptcha" data-sitekey="6LcrrwkqAAAAACLgp3vY5oeUiiuPv4wSRiEXSXxG"
-                                id="recaptcha"></div> -->
-                            <div id="recaptcha-error" style="color: red; display: none;">Please complete the reCAPTCHA.
-                            </div>
-                            <div class="button input-box">
-                                <input type="submit" value="Submit">
-                            </div>
-                            <div class="text sign-up-text">Don't have an account? <a
-                                    href="{{ url_for('signup') }}">Signup now</a>
-                            </div>
-                        </div>
-                    </form>
-                    {% with messages = get_flashed_messages() %}
-                    {% if messages %}
-                    <ul>
-                        {% for message in messages %}
-                        <li>{{ message }}</li>
-                        {% endfor %}
-                    </ul>
-                    {% endif %}
-                    {% endwith %}
-                </div>
-            </div>
-        </div>
-    </div>
+  <div class="form-container animate-fade-in">
+    <h2>Login</h2>
+    <form method="POST">
+      <input name="username" placeholder="Username" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <div class="g-recaptcha" data-sitekey="{{ site_key }}"></div>
+      <button type="submit">Login</button>
+    </form>
+  </div>
 </body>
-
 </html>

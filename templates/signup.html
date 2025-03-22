@@ -1,72 +1,86 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup</title>
-    <link rel="stylesheet" href="../static/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <script src="../static/script.js"></script>
-    <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script> -->
+  <meta charset="UTF-8">
+  <title>Signup | EchoAid</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #43cea2, #185a9d);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .form-container {
+      background: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      animation: slideUp 0.8s ease-out;
+    }
+
+    .form-container h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .form-container input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .form-container button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      background-color: #43cea2;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-container button:hover {
+      background-color: #36b195;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <div class="container">
-        <div class="cover">
-            <div class="front">
-                <img src="../static/assests/frontend.jpg" alt="">
-                <div class="text">
-                    <span class="text-1">Enhance workplace <br> communication <br> with AI Companion</span>
-                    <span class="text-2">Let's get connected</span>
-                </div>
-            </div>
-        </div>
-        <div class="forms">
-            <div class="form-content">
-                <div class="signup-form">
-                    <div class="title">Signup</div>
-                    <form action="{{ url_for('signup2') }}" id="signupForm" onsubmit="validateForm(event)"
-                        method="post">
-                        <div class="input-boxes">
-                            <div class="input-box">
-                                <i class="fas fa-user"></i>
-                                <input type="text" placeholder="Enter your name" name="name" required>
-                            </div>
-                            <div class="input-box">
-                                <i class="fas fa-envelope"></i>
-                                <input type="text" placeholder="Enter your email" name="email" required>
-                            </div>
-                            <div class="input-box">
-                                <i class="fas fa-lock"></i>
-                                <input type="password" placeholder="Enter your password" name="password" required>
-                            </div>
-                            <!-- <div class="g-recaptcha" data-sitekey="6LcrrwkqAAAAACLgp3vY5oeUiiuPv4wSRiEXSXxG"
-                                id="recaptcha"></div> -->
-                            <div id="recaptcha-error" style="color: red; display: none;">Please complete the reCAPTCHA.
-                            </div>
-                            <div class="button input-box">
-                                <input type="submit" value="Submit">
-                            </div>
-                            <div class="text sign-up-text">Already have an account? <a href="{{url_for('login')}}">Login
-                                    now</a>
-                            </div>
-                        </div>
-                    </form>
-                    {% with messages = get_flashed_messages() %}
-                    {% if messages %}
-                    <ul>
-                        {% for message in messages %}
-                        <li>{{ message }}</li>
-                        {% endfor %}
-                    </ul>
-                    {% endif %}
-                    {% endwith %}
-                </div>
-            </div>
-        </div>
-    </div>
+  <div class="form-container animate-slide-up">
+    <h2>Sign Up</h2>
+    <form method="POST">
+      {% if show_otp %}
+        <input name="otp" placeholder="Enter OTP" required>
+      {% else %}
+        <input name="username" placeholder="Username" required>
+        <input name="email" type="email" placeholder="Email" required>
+        <input name="password" type="password" placeholder="Password" required>
+      {% endif %}
+      <button type="submit">{{ 'Verify OTP' if show_otp else 'Register' }}</button>
+    </form>
+  </div>
 </body>
-
 </html>
