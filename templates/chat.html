@@ -3,6 +3,78 @@
 <head>
   <meta charset="UTF-8">
   <title>Voice Chatbot</title>
+  <style>
+    /* Dark theme */
+    body {
+      background-color: #121212;
+      color: #f1f1f1;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      padding: 50px;
+      margin: 0;
+      animation: fadeIn 1.5s ease;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #00bcd4;
+      animation: slideInTop 1s ease;
+    }
+
+    button {
+      background-color: #00bcd4;
+      color: #121212;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.1em;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      animation: popIn 1s ease;
+    }
+
+    button:hover {
+      background-color: #0097a7;
+      transform: scale(1.05);
+    }
+
+    p {
+      font-size: 1.2em;
+      margin: 20px 0;
+    }
+
+    strong {
+      color: #ff9800;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideInTop {
+      from {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes popIn {
+      from {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+  </style>
 </head>
 <body>
   <h1>🎙️Voice Chatbot</h1>
