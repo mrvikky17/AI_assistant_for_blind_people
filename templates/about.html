@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About | EchoAid</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #667eea, #764ba2);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+      animation: fadeInBackground 1s ease-in-out;
+    }
+
+    .container {
+      max-width: 800px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 40px;
+      margin: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      animation: slideUp 1s ease forwards;
+      opacity: 0;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      color: #ffffff;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.6;
+      text-align: center;
+      color: #f0f0f0;
+    }
+
+    .highlight {
+      color: #ffd700;
+      font-weight: bold;
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInBackground {
+      from {
+        background: #000;
+      }
+      to {
+        background: linear-gradient(to right, #667eea, #764ba2);
+      }
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 0.9em;
+      color: #ddd;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>About EchoAid</h1>
+  <div class="container">
+    <p>
+      <span class="highlight">EchoAid</span> is an intelligent voice-based assistant designed to empower individuals who are visually impaired or blind. 
+      Using cutting-edge <span class="highlight">AI technologies</span> like speech recognition, text-to-speech, OCR, and computer vision, 
+      EchoAid offers real-time voice interaction, object detection, scene description, and navigation guidance.
+    </p>
+    <p>
+      Built with compassion and innovation, EchoAid is your <span class="highlight">personal AI companion</span> that speaks, listens, and guides you through daily life.
+    </p>
+    <p>
+      Our mission is simple — <span class="highlight">Accessibility for All</span>.
+    </p>
+  </div>
+  <div class="footer">
+    &copy; 2025 EchoAid. All rights reserved.
+  </div>
+</body>
+</html>
