@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session, jsonify
 app = Flask(__name__)
-from chatbot import get_bot_response
+# from chatbot import get_bot_response
 
 # Routes
 @app.route('/')
@@ -29,11 +29,11 @@ def signup():
 def dashboard():
     return render_template('dashboard.html', name=session.get('name'))
     
-@app.route("/chat", methods=["POST"])
-def chat():
-    user_input = request.json.get("message")
-    bot_response = get_bot_response(user_input)
-    return jsonify({"response": bot_response})
+# @app.route("/chat", methods=["POST"])
+# def chat():
+#     user_input = request.json.get("message")
+#     bot_response = get_bot_response(user_input)
+#     return jsonify({"response": bot_response})
 
 # Forms
 

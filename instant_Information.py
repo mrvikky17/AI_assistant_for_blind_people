@@ -47,6 +47,7 @@ def get_news():
             return "Failed to fetch news."
     except Exception as e:
         return f"Error fetching news: {e}"
+    
 
 def get_weather(city):
     """Fetches current weather information for a given city."""
@@ -67,6 +68,7 @@ def get_weather(city):
         return f"Error fetching weather: {e}"
 
 if __name__ == "__main__":
+
     print("\n🤖 Instant Information Assistant")
     while True:
         print("\n1️⃣ General Q&A (Ask anything!)")
