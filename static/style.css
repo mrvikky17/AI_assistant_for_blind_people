@@ -1,58 +1,65 @@
 body {
-    font-family: 'Ubuntu', sans-serif;
-    background-color: #121212;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .form-container {
-    background: #1e1e1e;
-    padding: 2rem;
-    border-radius: 16px;
-    box-shadow: 0 0 20px #00ffd5;
-    width: 300px;
-    animation-duration: 1s;
-    animation-fill-mode: both;
-  }
-  
-  input {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 10px;
-    border: none;
-  }
-  
-  button {
-    background: linear-gradient(45deg, #00ffd5, #008cff);
-    color: #000;
-    border: none;
-    padding: 10px;
-    border-radius: 10px;
-    width: 100%;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  
-  .animate-fade-in {
-    animation-name: fadeIn;
-  }
-  
-  .animate-slide-up {
-    animation-name: slideUp;
-  }
-  
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  
-  @keyframes slideUp {
-    from { transform: translateY(100px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-  }
-  
+  font-family: Arial, sans-serif;
+  background: #f0f0f0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h2 {
+  text-align: center;
+}
+
+.chat-box {
+  height: 350px;
+  overflow-y: scroll;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  background: #fafafa;
+  border-radius: 8px;
+}
+
+.user {
+  text-align: right;
+  color: blue;
+  margin-bottom: 8px;
+}
+
+.bot {
+  text-align: left;
+  color: green;
+  margin-bottom: 8px;
+}
+
+.input-section {
+  display: flex;
+  gap: 10px;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  background: #4caf50;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #45a049;
+}

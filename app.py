@@ -1,4 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session, jsonify
+from gtts import gTTS
+import uuid
 app = Flask(__name__)
 # from chatbot import get_bot_response
 
@@ -29,13 +31,16 @@ def signup():
 def dashboard():
     return render_template('dashboard.html', name=session.get('name'))
     
-# @app.route("/chat", methods=["POST"])
-# def chat():
-#     user_input = request.json.get("message")
-#     bot_response = get_bot_response(user_input)
-#     return jsonify({"response": bot_response})
+app.route("/chat")
+def chat():
+    return render_template('chat.html')
 
-# Forms
+
+@app.route("/chat", methods=["POST"])
+def chat():
+    user_input = request.json.get("message", "")
+    response = chat_session.send_message(user_input)
+    return jsonify({"reply": response.text})
 
 if __name__ == '__main__':
     app.run( debug=True,port=8000)
