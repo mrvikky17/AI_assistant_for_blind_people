@@ -12,8 +12,11 @@
     <nav class="flex justify-between items-center p-6">
         <h1 class="text-2xl font-bold text-cyan-400">EchoAid</h1>
         <div class="space-x-4 flex items-center">
-          <span id="temp-icon" class="text-cyan-400 text-lg">🌡️ Loading...</span>
+            <!-- Temperature Icon -->
+            <span id="temp-icon" class="text-cyan-400 text-lg">🌡️ Loading...</span>
             <button class="border-2 border-cyan-400 text-cyan-400 px-4 py-2 rounded-full hover:bg-cyan-400 hover:text-black">About</button>
+            
+            
             
             <button class="bg-cyan-400 text-black px-4 py-2 rounded-full">Login</button>
             <button class="border-2 border-cyan-400 text-cyan-400 px-4 py-2 rounded-full hover:bg-cyan-400 hover:text-black">Sign Up</button>
@@ -38,8 +41,12 @@
     </div>
 
     <script>
-        document.getElementById("startChat").addEventListener("click", function() {
+        document.getElementById("startChat").addEventListener("click", async function() {
             document.getElementById("chatContainer").classList.remove("hidden");
+
+            // Fetch and speak temperature when chatbot opens
+            const temperatureMessage = await getWeather();
+            speakText(temperatureMessage);
         });
 
         async function sendMessage() {
@@ -102,12 +109,16 @@
                 const data = await response.json();
 
                 if (data.main) {
-                    document.getElementById('temp-icon').innerHTML = `🌡️ ${data.main.temp}°C`;
+                    const temperature = data.main.temp;
+                    document.getElementById('temp-icon').innerHTML = `🌡️ ${temperature}°C`;
+                    return `The current temperature in ${city} is ${temperature} degrees Celsius.`;
                 } else {
                     document.getElementById('temp-icon').innerHTML = "⚠️ Error fetching";
+                    return "I couldn't fetch the temperature right now.";
                 }
             } catch (error) {
                 document.getElementById('temp-icon').innerHTML = "⚠️ Network error";
+                return "There was a network error while fetching the temperature.";
             }
         }
 
