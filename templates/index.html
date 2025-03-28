@@ -18,8 +18,9 @@
             
             
             
-            <button class="bg-cyan-400 text-black px-4 py-2 rounded-full">Login</button>
-            <button class="border-2 border-cyan-400 text-cyan-400 px-4 py-2 rounded-full hover:bg-cyan-400 hover:text-black">Sign Up</button>
+            <a href="login.html"><button class="bg-cyan-400 text-black px-4 py-2 rounded-full">Login</button></a>
+            <a href="signup.html"><button class="border-2 border-cyan-400 text-cyan-400 px-4 py-2 rounded-full hover:bg-cyan-400 hover:text-black">Sign Up</button></a>
+            
         </div>
     </nav>
 
@@ -89,19 +90,35 @@
         }
 
         function speakText(text) {
-            let speech = new SpeechSynthesisUtterance();
-            speech.text = text;
-            speech.lang = "en-US";
-            speech.rate = 1;
-            speech.volume = 1;
-            speech.pitch = 1;
-            window.speechSynthesis.speak(speech);
-        }
+    let speech = new SpeechSynthesisUtterance();
+    let synth = window.speechSynthesis;
+    
+    speech.text = text;
+    
+    // Detect language
+    const hindiPattern = /[\u0900-\u097F]/;
+    let lang = hindiPattern.test(text) ? "hi-IN" : "en-US";
+    speech.lang = lang;
+
+    // Set a voice matching the language
+    let voices = synth.getVoices();
+    let selectedVoice = voices.find(voice => voice.lang.startsWith(lang));
+
+    if (selectedVoice) {
+        speech.voice = selectedVoice;
+    }
+
+    speech.rate = 1;
+    speech.volume = 1;
+    speech.pitch = 1;
+
+    synth.speak(speech);
+}
 
         // Fetch Live Temperature
         async function getWeather() {
-            const apiKey = 'c06cf0f15e6295896b5c52b3257e543b'; // Replace with your OpenWeatherMap API Key
-            const city = 'Mathura'; // Replace with your city
+            const apiKey = 'c06cf0f15e6295896b5c52b3257e543b'; 
+            const city = 'Mathura';
             const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
 
             try {
